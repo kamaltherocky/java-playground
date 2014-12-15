@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.kamal.openstack</groupId>
+	<artifactId>woorea-sdk-client</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Openstack Woorea SDK Client Examples</name>
+
+
+	<properties>
+		<woorea.version>3.2.1</woorea.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Keystone Client -->
+		<dependency>
+			<groupId>com.woorea</groupId>
+			<artifactId>keystone-client</artifactId>
+			<version>${woorea.version}</version>
+		</dependency>
+		<!-- Runtime binding to determine the connector to use for API Rest Calls. Without this, it will throw NPE -->
+		<dependency>
+			<groupId>com.woorea</groupId>
+			<artifactId>jersey-connector</artifactId>
+			<version>${woorea.version}</version>
+		</dependency>
+	</dependencies>
+	
+	<repositories>
+		<repository>
+			<id>cloud.snapshots</id>
+			<url>http://nxrepository.qa.ebay.com/nexus/content/repositories/cloud.snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<build>
+		<finalName>openstackclient</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
